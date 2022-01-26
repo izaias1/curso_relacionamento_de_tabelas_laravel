@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\{
+    User,
+    Preference
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +20,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/one-to-one', function ()
+    {
+        $user = User::first();
+
+        $user->preference()->create([
+            'backgroud_color' => '#f90',
+        ]);
+
+        $user->refresh();
+
+        dd($user->preference);
+    }
+);
