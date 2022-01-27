@@ -9,6 +9,7 @@ class Preference extends Model
 {
     use HasFactory;
 
+    // arquivos que podem ser acessados e editados.
     protected $fillable = [
         'notify_emails',
         'notify',
